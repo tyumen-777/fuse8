@@ -1,0 +1,40 @@
+.filter {
+    display: flex;
+    width: 100%;
+}
+
+.form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.filter__text {
+    margin-right: 10px;
+}
+
+.input {
+    width: 100%;
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    margin: 8px 0;
+    outline: none;
+    padding: 8px;
+    box-sizing: border-box;
+    transition: .3s;
+}
+.filter__add-button {
+    width: 150px;
+    height: 38px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 13px;
+    padding: 0;
+    border: 2px solid #fff;
+    box-sizing: border-box;
+    border-radius: 2px;
+    background-color: grey;
+    cursor: pointer;
+    transition: opacity 1s linear;
+    outline: none;
+}
