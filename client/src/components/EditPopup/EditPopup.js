@@ -4,7 +4,7 @@ import './EditPopup.css'
 
 function EditPopup({onClose, isOpen,onEdit, card, onSelectCard}) {
     const [description, setDescription] = React.useState('');
-    const [link, setLink] = React.useState('');
+    const [link, setLink] = React.useState();
     const [name, setName] = React.useState('');
     const [price, setPrice] = React.useState('');
     const [type, setType] = React.useState('');
@@ -50,7 +50,7 @@ function EditPopup({onClose, isOpen,onEdit, card, onSelectCard}) {
                 <h2 className="popup__heading">Редактировать объект</h2>
                 <form className="popup__input" name="popup" noValidate onSubmit={handleSubmit}>
                     <input className="popup__field"  type="url" placeholder="Изображение"
-                           onChange={handleEditLink} required name="link" value={link || ""}/>
+                           onChange={handleEditLink} required name="link" value={onSelectCard.link || ''}/>
                     <input className="popup__field"  type="text" placeholder="Название" onChange={editName} required/>
                     <input className="popup__field"  type="text" placeholder="Короткое описание"
                            onChange={editDescription} required/>
