@@ -56,7 +56,7 @@ function App() {
     };
 
     function handleCardDelete(card) {
-
+        console.log(card.name)
         api.removeCard(card._id)
             .then(() => {
                 const newCards = cards.filter((elem) => elem !== card);
@@ -71,6 +71,7 @@ function App() {
         console.log(card._id)
         api.editCard(card._id,)
             .then((card) => {
+                setCards([card])
                 console.log(card)
                 closePopup()
             })

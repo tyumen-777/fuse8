@@ -26,7 +26,7 @@ function Card({card, onCardDelete, onEditPlace, isEditPopupOpen, onClose, onEdit
                     <p className="card__price">Цена: {card.price}&#8381;</p>
                 </div>
             </li>
-            <EditPopup isOpen={isEditPopupOpen} onClose={onClose} card={card} onEdit={onEdit} onSelectCard={onSelectCard}/>
+            {/*<EditPopup isOpen={isEditPopupOpen} onClose={onClose} card={card} onEdit={onEdit} onSelectCard={onSelectCard}/>*/}
         </>
     )
 }

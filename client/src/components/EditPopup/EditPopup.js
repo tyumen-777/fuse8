@@ -10,6 +10,7 @@ function EditPopup({onClose, isOpen,onEdit, card, onSelectCard}) {
     const [type, setType] = React.useState('');
 
 
+
     function handleSubmit(evt) {
         evt.preventDefault()
                 onEdit(onSelectCard, {
@@ -50,7 +51,7 @@ function EditPopup({onClose, isOpen,onEdit, card, onSelectCard}) {
                 <h2 className="popup__heading">Редактировать объект</h2>
                 <form className="popup__input" name="popup" noValidate onSubmit={handleSubmit}>
                     <input className="popup__field"  type="url" placeholder="Изображение"
-                           onChange={handleEditLink} required name="link" value={onSelectCard.link || ''}/>
+                           onChange={handleEditLink} required name="link"/>
                     <input className="popup__field"  type="text" placeholder="Название" onChange={editName} required/>
                     <input className="popup__field"  type="text" placeholder="Короткое описание"
                            onChange={editDescription} required/>

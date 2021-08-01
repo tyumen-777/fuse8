@@ -2,6 +2,7 @@ import React from 'react';
 
 import './Main.css'
 import Card from "../Card/Card";
+import EditPopup from "../EditPopup/EditPopup";
 
 
 function Main(props) {
@@ -60,6 +61,7 @@ function Main(props) {
                     </svg>
                 </button>
             }
+            <EditPopup isOpen={isEditPopupOpen} onClose={onClose} card={''} onEdit={onEdit} onSelectCard={onSelectCard}/>
         </main>
     );
 }
