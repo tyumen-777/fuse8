@@ -4,6 +4,7 @@ const config = require('config');
 const bodyParser = require('body-parser');
 const app = express();
 const cors = require('cors');
+const path = require('path');
 
 const cardRoutes = require('./routes/card');
 const NotFoundError = require('./errors/notFoundError');
@@ -16,6 +17,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/', cardRoutes);
+if (process.env.NODE_ENV === 'production') {
+    app.use('/', express.static(path.join(__dirname, 'client', 'build')))
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+    })
+};
 app.use('*', () => {
     throw new NotFoundError('Запрашиваемый ресурс не найден');
 });
@@ -38,7 +46,7 @@ app.use((err, req, res, next) => {
 
 async function start() {
     try {
-        await mongoose.connect('mongodb://localhost:27017/fuse8', {
+        await mongoose.connect(config.get('mongoUri'), {
             useNewUrlParser: true,
             useCreateIndex: true,
             useUnifiedTopology: true,
