@@ -38,7 +38,7 @@ app.use((err, req, res, next) => {
 
 async function start() {
     try {
-        await mongoose.connect('mongodb+srv://tyumen-777:Pudovkin95@cluster0.efo0h.mongodb.net/app?retryWrites=true&w=majority', {
+        await mongoose.connect('mongodb://localhost:27017/fuse8', {
             useNewUrlParser: true,
             useCreateIndex: true,
             useUnifiedTopology: true,
