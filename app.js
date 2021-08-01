@@ -10,7 +10,7 @@ const cardRoutes = require('./routes/card');
 const NotFoundError = require('./errors/notFoundError');
 
 
-const { PORT = 5000 } = process.env;
+const PORT = config.get('port') || 5000
 
 app.use(cors());
 app.use(bodyParser.json());
