@@ -9,7 +9,7 @@ const cardRoutes = require('./routes/card');
 const NotFoundError = require('./errors/notFoundError');
 
 
-const PORT = config.get('port') || 5000
+const { PORT = 5000 } = process.env;
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -38,7 +38,7 @@ app.use((err, req, res, next) => {
 
 async function start() {
     try {
-        await mongoose.connect(config.get('mongoUri'), {
+        await mongoose.connect('mongodb+srv://tyumen-777:Pudovkin95@cluster0.efo0h.mongodb.net/app?retryWrites=true&w=majority', {
             useNewUrlParser: true,
             useCreateIndex: true,
             useUnifiedTopology: true,
