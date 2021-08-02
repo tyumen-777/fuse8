@@ -67,12 +67,10 @@ function App() {
             })
     };
 
-    function handleCardEdit(card) {
-        console.log(card._id)
-        api.editCard(card._id,)
+    function handleCardEdit(card, {description, link, name, price, type}) {
+        api.editCard(card._id,description, link, name, price, type)
             .then((card) => {
                 setCards([card])
-                console.log(card)
                 closePopup()
             })
             .catch((err) => {
