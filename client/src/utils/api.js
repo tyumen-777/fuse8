@@ -56,7 +56,7 @@ class Api {
 }
 
 const api = new Api({
-    address: 'http://localhost:5000',
+    address: 'http://api.tyumen-777.nomoredomains.monster',
     headers: {
         'Content-type': 'application/json'
     }
