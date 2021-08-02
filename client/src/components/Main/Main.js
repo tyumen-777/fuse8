@@ -4,7 +4,6 @@ import './Main.css'
 import Card from "../Card/Card";
 import EditPopup from "../EditPopup/EditPopup";
 
-
 function Main(props) {
     const {
         cards,
@@ -42,7 +41,8 @@ function Main(props) {
                             return card;
                         } else if (card.name.toLowerCase().includes(searchValue.toLowerCase())) {
                             return card;
-                        } return false
+                        }
+                        return false
                     })
                         .map((card) =>
                             <Card key={card._id} card={card} onCardDelete={onCardDelete}
@@ -61,7 +61,8 @@ function Main(props) {
                     </svg>
                 </button>
             }
-            <EditPopup isOpen={isEditPopupOpen} onClose={onClose} card={''} onEdit={onEdit} onSelectCard={onSelectCard}/>
+            <EditPopup isOpen={isEditPopupOpen} onClose={onClose} card={''} onEdit={onEdit}
+                       onSelectCard={onSelectCard}/>
         </main>
     );
 }

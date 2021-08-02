@@ -2,18 +2,16 @@ import React from 'react';
 import './EditPopup.css'
 
 
-function EditPopup({onClose, isOpen,onEdit, card, onSelectCard}) {
+function EditPopup({onClose, isOpen, onEdit, card, onSelectCard}) {
     const [description, setDescription] = React.useState('');
     const [link, setLink] = React.useState();
     const [name, setName] = React.useState('');
     const [price, setPrice] = React.useState('');
     const [type, setType] = React.useState('');
 
-
-
     function handleSubmit(evt) {
         evt.preventDefault()
-                onEdit(onSelectCard, {
+        onEdit(onSelectCard, {
             description: description,
             link: link,
             name: name,
@@ -21,7 +19,6 @@ function EditPopup({onClose, isOpen,onEdit, card, onSelectCard}) {
             type: type,
         })
     }
-
 
     function editDescription(evt) {
         setDescription(evt.target.value)
@@ -43,20 +40,19 @@ function EditPopup({onClose, isOpen,onEdit, card, onSelectCard}) {
         setType(evt.target.value)
     }
 
-
     return (
-        <div className={`popup  ${onSelectCard  && isOpen ? 'popup__opened' : ''}`}>
+        <div className={`popup  ${onSelectCard && isOpen ? 'popup__opened' : ''}`}>
             <div className="popup__container">
                 <button className="popup__button-close" type="button" onClick={onClose}/>
                 <h2 className="popup__heading">Редактировать объект</h2>
                 <form className="popup__input" name="popup" noValidate onSubmit={handleSubmit}>
-                    <input className="popup__field"  type="url" placeholder="Изображение"
+                    <input className="popup__field" type="url" placeholder="Изображение"
                            onChange={handleEditLink} required name="link"/>
-                    <input className="popup__field"  type="text" placeholder="Название" onChange={editName} required/>
-                    <input className="popup__field"  type="text" placeholder="Короткое описание"
+                    <input className="popup__field" type="text" placeholder="Название" onChange={editName} required/>
+                    <input className="popup__field" type="text" placeholder="Короткое описание"
                            onChange={editDescription} required/>
-                    <input className="popup__field"  type="number" placeholder="Цена" onChange={editPrice} required/>
-                    <input className="popup__field"  type="text" placeholder="Тип жилья" onChange={editType} required/>
+                    <input className="popup__field" type="number" placeholder="Цена" onChange={editPrice} required/>
+                    <input className="popup__field" type="text" placeholder="Тип жилья" onChange={editType} required/>
                     {/*<select name="" id="types" className="popup__field" onChange={addType}>*/}
                     {/*    <option value="Коммерческое">Коммерческое</option>*/}
                     {/*    <option value="Жилое">Жилое</option>*/}

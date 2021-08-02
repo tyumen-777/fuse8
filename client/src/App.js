@@ -17,12 +17,11 @@ function App() {
     const [isEditPopupOpen, setIsEditPopupOpen] = React.useState(false)
     const [selectedCard, setSelectedCard] = React.useState({})
 
-
     React.useEffect(() => {
         api.getInitialCards()
             .then(cardList => {
                 setCards(cardList)
-                setRenderedCards(cardList.slice(0,6))
+                setRenderedCards(cardList.slice(0, 6))
             })
             .catch((err) => {
                 console.log(err)
@@ -68,7 +67,7 @@ function App() {
     };
 
     function handleCardEdit(card, {description, link, name, price, type}) {
-        api.editCard(card._id,description, link, name, price, type)
+        api.editCard(card._id, description, link, name, price, type)
             .then((card) => {
                 setCards([card])
                 closePopup()
@@ -77,7 +76,6 @@ function App() {
                 console.log(err)
             })
     };
-
 
     return (
         <div className='page'>
@@ -90,7 +88,7 @@ function App() {
                           setCards={setCards} onSelectCard={selectedCard}
                           onEdit={handleCardEdit} renderedCards={renderedCards} setRenderedCards={setRenderedCards}
                           searchValue={searchValue} setSearchValue={setSearchValue}
-                    isEditPopupOpen={isEditPopupOpen}>
+                          isEditPopupOpen={isEditPopupOpen}>
                     </Main>
                     <AddPopup isOpen={isAddPopupOpen} onClose={closePopup} onAddPlace={handleAddPlaceSubmit}/>
                 </Route>
