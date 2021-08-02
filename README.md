@@ -8,3 +8,4 @@
 
 Stack - Html, Css, React, ExpressJS
 
+Сайт доступен по ссылке: http://tyumen-777.nomoredomains.club/#/
