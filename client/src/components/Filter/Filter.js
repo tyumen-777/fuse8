@@ -8,7 +8,7 @@ function Filter({onAddPlace, searchValue, setSearchValue}) {
         <div className="filter">
             <form className="form">
                 <label className="filter__text" htmlFor="search">Фильтр</label>
-                <input className="input" placeholder="Введите тип объекта" id="search" value={searchValue}
+                <input className="input" placeholder="Введите название объекта" id="search" value={searchValue}
                        onChange={(evt) => {
                            setSearchValue(evt.target.value);
                        }}/>
