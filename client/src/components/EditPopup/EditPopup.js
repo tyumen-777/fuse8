@@ -47,14 +47,15 @@ function EditPopup({onClose, isOpen, onEdit, card, onSelectCard}) {
                 <h2 className="popup__heading">Редактировать объект</h2>
                 <form className="popup__input" name="popup" noValidate onSubmit={handleSubmit}>
                     <input className="popup__field" type="url" placeholder="Изображение"
-                           onChange={handleEditLink} required name="link" defaultValue={onSelectCard.link}/>
+                           onChange={handleEditLink} required name="link"/>
                     <input className="popup__field" type="text" placeholder="Название" onChange={editName} required
-                           defaultValue={onSelectCard.name}/>
+                    />
                     <input className="popup__field" type="text" placeholder="Короткое описание"
-                           onChange={editDescription} defaultValue={onSelectCard.description} required/>
+                           onChange={editDescription} required/>
                     <input className="popup__field" type="number" placeholder="Цена" onChange={editPrice}
-                           defaultValue={onSelectCard.price} required/>
-                    <input className="popup__field" type="text" placeholder="Тип жилья" onChange={editType} defaultValue={onSelectCard.type} required/>
+                           required/>
+                    <input className="popup__field" type="text" placeholder="Тип жилья" onChange={editType}
+                            required/>
                     {/*<select name="" id="types" className="popup__field" onChange={addType}>*/}
                     {/*    <option value="Коммерческое">Коммерческое</option>*/}
                     {/*    <option value="Жилое">Жилое</option>*/}
