@@ -51,11 +51,11 @@ function AddPopup({onAddPlace, onClose, isOpen}) {
                     <input className="popup__field" type="text" placeholder="Короткое описание"
                            onChange={addDescription} required/>
                     <input className="popup__field" type="number" placeholder="Цена" onChange={addPrice} required/>
-                    <input className="popup__field" type="text" placeholder="Тип жилья" onChange={addType} required/>
-                    {/*<select name="" id="types" className="popup__field" onChange={addType}>*/}
-                    {/*    <option value="Коммерческое">Коммерческое</option>*/}
-                    {/*    <option value="Жилое">Жилое</option>*/}
-                    {/*</select>*/}
+                    {/*<input className="popup__field" type="text" placeholder="Тип жилья" onChange={addType} required/>*/}
+                    <select name="" id="types" className="popup__field" onChange={addType} value={type || ''}>
+                        <option value="Коммерческое">Коммерческое</option>
+                        <option value="Жилое">Жилое</option>
+                    </select>
                     <button className="popup__button-save" type="submit">
                         Добавить
                     </button>

@@ -39,6 +39,7 @@ function EditPopup({onClose, isOpen, onEdit, card, onSelectCard}) {
     function editType(evt) {
         setType(evt.target.value)
     }
+
     React.useEffect(() => {
         setName(onSelectCard.name);
         setLink(onSelectCard.link);
@@ -54,19 +55,19 @@ function EditPopup({onClose, isOpen, onEdit, card, onSelectCard}) {
                 <h2 className="popup__heading">Редактировать объект</h2>
                 <form className="popup__input" name="popup" noValidate onSubmit={handleSubmit}>
                     <input className="popup__field" type="url" placeholder="Изображение"
-                           onChange={handleEditLink} value={link} required name="link"/>
+                           onChange={handleEditLink} value={link || ''} required name="link"/>
                     <input className="popup__field" type="text" placeholder="Название" onChange={editName} required
-                    value={name} />
+                    value={name || ''} />
                     <input className="popup__field" type="text" placeholder="Короткое описание"
-                           onChange={editDescription} value={description} required/>
+                           onChange={editDescription} value={description || ''} required/>
                     <input className="popup__field" type="number" placeholder="Цена" onChange={editPrice}
-                          value={price} required/>
-                    <input className="popup__field" type="text" placeholder="Тип жилья" onChange={editType}
-                         value={type}   required/>
-                    {/*<select name="" id="types" className="popup__field" onChange={addType}>*/}
-                    {/*    <option value="Коммерческое">Коммерческое</option>*/}
-                    {/*    <option value="Жилое">Жилое</option>*/}
-                    {/*</select>*/}
+                          value={price || ''} required/>
+                    {/*<input className="popup__field" type="text" placeholder="Тип жилья" onChange={editType}*/}
+                    {/*     value={type || ''}   required/>*/}
+                    <select name="" id="types" className="popup__field" onChange={editType} value={type || ''}>
+                        <option value="Коммерческое">Коммерческое</option>
+                        <option value="Жилое">Жилое</option>
+                    </select>
                     <button className="popup__button-save" type="submit">
                         Редактировать
                     </button>
