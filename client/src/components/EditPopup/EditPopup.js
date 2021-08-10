@@ -39,6 +39,13 @@ function EditPopup({onClose, isOpen, onEdit, card, onSelectCard}) {
     function editType(evt) {
         setType(evt.target.value)
     }
+    React.useEffect(() => {
+        setName(onSelectCard.name);
+        setLink(onSelectCard.link);
+        setDescription(onSelectCard.description);
+        setPrice(onSelectCard.price);
+        setType(onSelectCard.type);
+    }, [onSelectCard, isOpen])
 
     return (
         <div className={`popup  ${onSelectCard && isOpen ? 'popup__opened' : ''}`}>
@@ -47,15 +54,15 @@ function EditPopup({onClose, isOpen, onEdit, card, onSelectCard}) {
                 <h2 className="popup__heading">Редактировать объект</h2>
                 <form className="popup__input" name="popup" noValidate onSubmit={handleSubmit}>
                     <input className="popup__field" type="url" placeholder="Изображение"
-                           onChange={handleEditLink} required name="link"/>
+                           onChange={handleEditLink} value={link} required name="link"/>
                     <input className="popup__field" type="text" placeholder="Название" onChange={editName} required
-                    />
+                    value={name} />
                     <input className="popup__field" type="text" placeholder="Короткое описание"
-                           onChange={editDescription} required/>
+                           onChange={editDescription} value={description} required/>
                     <input className="popup__field" type="number" placeholder="Цена" onChange={editPrice}
-                           required/>
+                          value={price} required/>
                     <input className="popup__field" type="text" placeholder="Тип жилья" onChange={editType}
-                            required/>
+                         value={type}   required/>
                     {/*<select name="" id="types" className="popup__field" onChange={addType}>*/}
                     {/*    <option value="Коммерческое">Коммерческое</option>*/}
                     {/*    <option value="Жилое">Жилое</option>*/}
