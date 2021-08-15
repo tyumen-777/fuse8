@@ -47,6 +47,7 @@ function App() {
         api.addCard(description, link, name, price, type)
             .then((card) => {
                 setCards([...cards, card]);
+                setRenderedCards(cards)
                 closePopup()
             })
             .catch((err) => {
@@ -55,11 +56,11 @@ function App() {
     };
 
     function handleCardDelete(card) {
-        console.log(card.name)
         api.removeCard(card._id)
             .then(() => {
-                const newCards = cards.filter((elem) => elem !== card);
+                const newCards = cards.filter((elem) => elem!== card);
                 setCards(newCards);
+                setRenderedCards(newCards);
             })
             .catch((err) => {
                 console.log(err)
@@ -69,7 +70,6 @@ function App() {
     function handleCardEdit(card, {description, link, name, price, type}) {
         api.editCard(card._id, description, link, name, price, type)
             .then((data) => {
-                console.log(data)
                 setCards(data)
                 closePopup()
             })

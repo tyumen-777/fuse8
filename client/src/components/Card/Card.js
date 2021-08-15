@@ -1,7 +1,5 @@
 import React from 'react';
 import './Card.css'
-import EditPopup from "../EditPopup/EditPopup";
-
 
 function Card({card, onCardDelete, onEditPlace, isEditPopupOpen, onClose, onEdit, onSelectCard}) {
     function handleCardDelete() {

@@ -13,4 +13,8 @@
     animation: translating 2s linear infinite;
     width: 100px;
     height: 40px;
+    background-color: #3456F3;
+    border: none;
+    border-radius: 36px;
+    color: white;
 }
